@@ -1,0 +1,120 @@
+Horizon started successfully.
+[2019-05-16 16:08:21][12] Processing: App\Jobs\CloseOrder
+[2019-05-16 16:08:21][12] Processed:  App\Jobs\CloseOrder
+[2019-05-16 16:38:58][13] Processing: App\Jobs\CloseOrder
+[2019-05-16 16:38:58][13] Failed:     App\Jobs\CloseOrder
+
+   UnexpectedValueException  : The stream or file "/www/wwwroot/xfdj/storage/logs/laravel-2019-05-16.log" could not be opened: failed to open stream: Permission denied
+
+  at /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+    103|             }
+    104|             restore_error_handler();
+    105|             if (!is_resource($this->stream)) {
+    106|                 $this->stream = null;
+  > 107|                 throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not be opened: '.$this->errorMessage, $this->url));
+    108|             }
+    109|         }
+    110| 
+    111|         if ($this->useLocking) {
+
+  Exception trace:
+
+  1   Monolog\Handler\StreamHandler::write()
+      /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php:119
+
+  2   Monolog\Handler\RotatingFileHandler::write()
+      /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php:39
+
+  Please use the argument -v to see more details.
+[2019-05-16 16:55:53][14] Processing: App\Jobs\CloseOrder
+[2019-05-16 16:55:53][14] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:43:39][16] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:43:39][16] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:43:39][15] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:43:39][15] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:48:18][18] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:48:18][18] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:48:18][17] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:48:18][17] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:49:21][20] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:49:21][20] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:49:21][19] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:49:21][19] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:50:51][22] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:50:51][22] Processed:  App\Jobs\CloseOrder
+[2019-05-16 17:50:51][21] Processing: App\Jobs\CloseOrder
+[2019-05-16 17:50:51][21] Processed:  App\Jobs\CloseOrder
+[2019-05-17 10:31:05][23] Processing: App\Jobs\CloseOrder
+[2019-05-17 10:31:05][23] Processed:  App\Jobs\CloseOrder
+[2019-05-17 10:35:08][24] Processing: App\Jobs\CloseOrder
+[2019-05-17 10:35:08][24] Processed:  App\Jobs\CloseOrder
+[2019-05-17 11:22:06][25] Processing: App\Jobs\CloseOrder
+[2019-05-17 11:22:06][25] Processed:  App\Jobs\CloseOrder
+[2019-05-17 11:22:18][26] Processing: App\Jobs\CloseOrder
+[2019-05-17 11:22:18][26] Processed:  App\Jobs\CloseOrder
+[2019-05-17 11:22:18][27] Processing: App\Jobs\CloseOrder
+[2019-05-17 11:22:18][27] Processed:  App\Jobs\CloseOrder
+[2019-05-17 11:30:03][28] Processing: App\Jobs\CloseOrder
+[2019-05-17 11:30:03][28] Processed:  App\Jobs\CloseOrder
+[2019-05-17 12:00:22][29] Processing: App\Jobs\CloseOrder
+[2019-05-17 12:00:22][29] Processed:  App\Jobs\CloseOrder
+[2019-05-17 16:11:04][30] Processing: App\Jobs\CloseOrder
+[2019-05-17 16:11:04][30] Processed:  App\Jobs\CloseOrder
+[2019-05-17 16:12:17][31] Processing: App\Jobs\CloseOrder
+[2019-05-17 16:12:17][31] Processed:  App\Jobs\CloseOrder
+[2019-05-17 16:12:17][32] Processing: App\Jobs\CloseOrder
+[2019-05-17 16:12:17][32] Processed:  App\Jobs\CloseOrder
+[2019-05-18 13:22:27][34] Processing: App\Jobs\CloseOrder
+[2019-05-18 13:22:27][34] Processed:  App\Jobs\CloseOrder
+[2019-05-18 13:22:29][36] Processing: App\Jobs\CloseOrder
+[2019-05-18 13:22:29][36] Failed:     App\Jobs\CloseOrder
+
+   UnexpectedValueException  : The stream or file "/www/wwwroot/xfdj/storage/logs/laravel-2019-05-18.log" could not be opened: failed to open stream: Permission denied
+
+  at /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+    103|             }
+    104|             restore_error_handler();
+    105|             if (!is_resource($this->stream)) {
+    106|                 $this->stream = null;
+  > 107|                 throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not be opened: '.$this->errorMessage, $this->url));
+    108|             }
+    109|         }
+    110| 
+    111|         if ($this->useLocking) {
+
+  Exception trace:
+
+  1   Monolog\Handler\StreamHandler::write()
+      /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php:119
+
+  2   Monolog\Handler\RotatingFileHandler::write()
+      /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php:39
+
+  Please use the argument -v to see more details.
+[2019-05-18 13:22:29][35] Processing: App\Jobs\CloseOrder
+[2019-05-18 13:22:29][35] Failed:     App\Jobs\CloseOrder
+
+   UnexpectedValueException  : The stream or file "/www/wwwroot/xfdj/storage/logs/laravel-2019-05-18.log" could not be opened: failed to open stream: Permission denied
+
+  at /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:107
+    103|             }
+    104|             restore_error_handler();
+    105|             if (!is_resource($this->stream)) {
+    106|                 $this->stream = null;
+  > 107|                 throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not be opened: '.$this->errorMessage, $this->url));
+    108|             }
+    109|         }
+    110| 
+    111|         if ($this->useLocking) {
+
+  Exception trace:
+
+  1   Monolog\Handler\StreamHandler::write()
+      /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php:119
+
+  2   Monolog\Handler\RotatingFileHandler::write()
+      /www/wwwroot/xfdj/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php:39
+
+  Please use the argument -v to see more details.
+[2019-05-18 13:51:49][33] Processing: App\Jobs\CloseOrder
+[2019-05-18 13:51:49][33] Processed:  App\Jobs\CloseOrder

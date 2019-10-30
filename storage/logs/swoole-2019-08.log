@@ -1,0 +1,690 @@
+[2019-08-09 14:57:00 *30191.1]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-09 15:05:37 *30192.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+PHP Fatal error:  Uncaught ErrorException: Undefined variable: server in /www/wwwroot/xfdj/app/Services/WebSocketService.php:23
+Stack trace:
+#0 /www/wwwroot/xfdj/app/Services/WebSocketService.php(23): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', '/www/wwwroot/xf...', 23, Array)
+#1 [internal function]: App\Services\WebSocketService->App\Services\{closure}(1)
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(361): Swoole\Server->start()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(132): Hhxsv5\LaravelS\Swoole\Server->run()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(183): Hhxsv5\LaravelS\Console\Portal->start()
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(62): Hhxsv5\LaravelS\Console\Portal->restart()
+#6 /www/wwwroot/xfdj/vendor/symfony/console/Command/Command.php(255): Hhxsv5\LaravelS\Console\Portal->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\Con in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 23
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught ErrorException: Undefined variable: server in /www/wwwroot/xfdj/app/Services/WebSocketService.php:23
+Stack trace:
+#0 /www/wwwroot/xfdj/app/Services/WebSocketService.php(23): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', '/www/wwwroot/xf...', 23, Array)
+#1 [internal function]: App\Services\WebSocketService->App\Services\{closure}(1)
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(361): Swoole\Server->start()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(132): Hhxsv5\LaravelS\Swoole\Server->run()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(183): Hhxsv5\LaravelS\Console\Portal->start()
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(62): Hhxsv5\LaravelS\Console\Portal->restart()
+#6 /www/wwwroot/xfdj/vendor/symfony/console/Command/Command.php(255): Hhxsv5\LaravelS\Console\Portal->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\Con
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:23
+    19|     }
+    20|     public function onOpen(Server $server, Request $request)
+    21|     {
+    22|      	swoole_timer_tick(2000, function ($time_id) {
+  > 23|            $server->push($request->fd,"2s:time_id:{$time_id}\n");
+    24|         });
+    25|         // var_dump(app('swoole') === $server);// 同一实例
+    26|         $user = User::whereOpenid($request->get['openid'])->first();
+    27|         $userId = $user->id;
+
+
+   Whoops\Exception\ErrorException  : Uncaught ErrorException: Undefined variable: server in /www/wwwroot/xfdj/app/Services/WebSocketService.php:23
+Stack trace:
+#0 /www/wwwroot/xfdj/app/Services/WebSocketService.php(23): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', '/www/wwwroot/xf...', 23, Array)
+#1 [internal function]: App\Services\WebSocketService->App\Services\{closure}(1)
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(361): Swoole\Server->start()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(132): Hhxsv5\LaravelS\Swoole\Server->run()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(183): Hhxsv5\LaravelS\Console\Portal->start()
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(62): Hhxsv5\LaravelS\Console\Portal->restart()
+#6 /www/wwwroot/xfdj/vendor/symfony/console/Command/Command.php(255): Hhxsv5\LaravelS\Console\Portal->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\Con
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:23
+    19|     }
+    20|     public function onOpen(Server $server, Request $request)
+    21|     {
+    22|      	swoole_timer_tick(2000, function ($time_id) {
+  > 23|            $server->push($request->fd,"2s:time_id:{$time_id}\n");
+    24|         });
+    25|         // var_dump(app('swoole') === $server);// 同一实例
+    26|         $user = User::whereOpenid($request->get['openid'])->first();
+    27|         $userId = $user->id;
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught ErrorE...', '/www/wwwroot/xf...', 23)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-09 16:12:32 *27990.1]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught ErrorE...', '/www/wwwroot/xf...', 23)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-09 16:12:32 $27977.0]	WARNING	swManager_check_exit_status: worker#1[pid=27990] abnormal exit, status=255, signal=0
+PHP Fatal error:  Uncaught Error: Class 'App\Services\GoodsDb' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 40
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught Error: Class 'App\Services\GoodsDb' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+    36|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode('pong'.date('Y-m-d H:i:s',time())));// 广播
+    37|                 break;
+    38|             case "getbuylist":
+    39|                 $user = User::whereOpenid($info->openid)->first();
+  > 40|                 $buy =  GoodsDb::inRandomOrder()->get();
+    41|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode($buy));// 广播
+    42|                 break;
+    43|             case "closeorder":
+    44|                 $server->push(app('swoole')->wsTable->get('uid:'.$info->sh_id,'value'),json_encode(['type' => 'closeroder']));// 广播
+
+
+   Whoops\Exception\ErrorException  : Uncaught Error: Class 'App\Services\GoodsDb' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+    36|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode('pong'.date('Y-m-d H:i:s',time())));// 广播
+    37|                 break;
+    38|             case "getbuylist":
+    39|                 $user = User::whereOpenid($info->openid)->first();
+  > 40|                 $buy =  GoodsDb::inRandomOrder()->get();
+    41|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode($buy));// 广播
+    42|                 break;
+    43|             case "closeorder":
+    44|                 $server->push(app('swoole')->wsTable->get('uid:'.$info->sh_id,'value'),json_encode(['type' => 'closeroder']));// 广播
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 40)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-09 18:32:34 *12363.3]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 40)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-09 18:32:34 $27977.0]	WARNING	swManager_check_exit_status: worker#3[pid=12363] abnormal exit, status=255, signal=0
+PHP Fatal error:  Uncaught Error: Class 'App\Services\GoodsDb' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 40
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught Error: Class 'App\Services\GoodsDb' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+    36|                 $user = User::whereOpenid($info->openid)->first();
+    37|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode('pong'.date('Y-m-d H:i:s',time())));// 广播
+    38|                 break;
+    39|             case "getbuylist":
+  > 40|                 $user = User::whereOpenid($info->openid)->first();
+    41|                 $buy =  GoodsDb::inRandomOrder()->get();
+    42|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode($buy));// 广播
+    43|                 break;
+    44|             case "closeorder":
+
+
+   Whoops\Exception\ErrorException  : Uncaught Error: Class 'App\Services\GoodsDb' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:40
+    36|                 $user = User::whereOpenid($info->openid)->first();
+    37|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode('pong'.date('Y-m-d H:i:s',time())));// 广播
+    38|                 break;
+    39|             case "getbuylist":
+  > 40|                 $user = User::whereOpenid($info->openid)->first();
+    41|                 $buy =  GoodsDb::inRandomOrder()->get();
+    42|                 $server->push(app('swoole')->wsTable->get('uid:'.$user->id,'value'),json_encode($buy));// 广播
+    43|                 break;
+    44|             case "closeorder":
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 40)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-09 18:33:10 *12474.3]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 40)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-09 18:33:10 $27977.0]	WARNING	swManager_check_exit_status: worker#3[pid=12474] abnormal exit, status=255, signal=0
+[2019-08-10 09:15:45 *3791.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+PHP Fatal error:  Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:50
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 50
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:50
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:50
+    46| 			   
+    47| 			    if($curr_time >= $timeBegin1 && $curr_time <= $timeEnd1)
+    48| 			    {
+    49| 				    $user = User::whereOpenid($info->openid)->first();
+  > 50| 	                $buy =  GoodsDb::inRandomOrder()->first();
+    51| 	                $goods = Product::where('status',1)->inRandomOrder()->first();
+    52| 	                $buy->avatar = env('APP_URL').'/uploads/'. $buy->avatar;
+    53| 	                $buy->nick =  mb_substr($buy->nick,0,2).'***'.mb_substr($buy->nick,mb_strlen($buy->nick,"utf-8")-2,mb_strlen($buy->nick,"utf-8"));
+    54| 	                $buy['time'] = rand(5,20);
+
+
+   Whoops\Exception\ErrorException  : Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:50
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:50
+    46| 			   
+    47| 			    if($curr_time >= $timeBegin1 && $curr_time <= $timeEnd1)
+    48| 			    {
+    49| 				    $user = User::whereOpenid($info->openid)->first();
+  > 50| 	                $buy =  GoodsDb::inRandomOrder()->first();
+    51| 	                $goods = Product::where('status',1)->inRandomOrder()->first();
+    52| 	                $buy->avatar = env('APP_URL').'/uploads/'. $buy->avatar;
+    53| 	                $buy->nick =  mb_substr($buy->nick,0,2).'***'.mb_substr($buy->nick,mb_strlen($buy->nick,"utf-8")-2,mb_strlen($buy->nick,"utf-8"));
+    54| 	                $buy['time'] = rand(5,20);
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 50)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 09:33:45 *25950.1]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 50)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 09:33:45 $25937.0]	WARNING	swManager_check_exit_status: worker#1[pid=25950] abnormal exit, status=255, signal=0
+PHP Fatal error:  Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 51
+
+PHP Fatal error:  Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 51
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+    47| 			    if($curr_time >= $timeBegin1 && $curr_time <= $timeEnd1)
+    48| 			    {
+    49| 				    $user = User::whereOpenid($info->openid)->first();
+    50| 	                $buy =  GoodsDb::inRandomOrder()->first();
+  > 51| 	                $goods = Product::where('status',1)->inRandomOrder()->first();
+    52| 	                $buy->avatar = env('APP_URL').'/uploads/'. $buy->avatar;
+    53| 	                $buy->nick =  mb_substr($buy->nick,0,2).'***'.mb_substr($buy->nick,mb_strlen($buy->nick,"utf-8")-2,mb_strlen($buy->nick,"utf-8"));
+    54| 	                $buy['time'] = rand(5,20);
+    55| 	                $buy['goods_id'] = $goods->id;
+
+
+   Whoops\Exception\ErrorException  : Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+    47| 			    if($curr_time >= $timeBegin1 && $curr_time <= $timeEnd1)
+    48| 			    {
+    49| 				    $user = User::whereOpenid($info->openid)->first();
+    50| 	                $buy =  GoodsDb::inRandomOrder()->first();
+  > 51| 	                $goods = Product::where('status',1)->inRandomOrder()->first();
+    52| 	                $buy->avatar = env('APP_URL').'/uploads/'. $buy->avatar;
+    53| 	                $buy->nick =  mb_substr($buy->nick,0,2).'***'.mb_substr($buy->nick,mb_strlen($buy->nick,"utf-8")-2,mb_strlen($buy->nick,"utf-8"));
+    54| 	                $buy['time'] = rand(5,20);
+    55| 	                $buy['goods_id'] = $goods->id;
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 51)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 09:34:17 *26127.1]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 51)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+[2019-08-10 09:34:17 $25937.0]	WARNING	swManager_check_exit_status: worker#1[pid=26127] abnormal exit, status=255, signal=0
+    47| 			    if($curr_time >= $timeBegin1 && $curr_time <= $timeEnd1)
+    48| 			    {
+    49| 				    $user = User::whereOpenid($info->openid)->first();
+    50| 	                $buy =  GoodsDb::inRandomOrder()->first();
+  > 51| 	                $goods = Product::where('status',1)->inRandomOrder()->first();
+    52| 	                $buy->avatar = env('APP_URL').'/uploads/'. $buy->avatar;
+    53| 	                $buy->nick =  mb_substr($buy->nick,0,2).'***'.mb_substr($buy->nick,mb_strlen($buy->nick,"utf-8")-2,mb_strlen($buy->nick,"utf-8"));
+    54| 	                $buy['time'] = rand(5,20);
+    55| 	                $buy['goods_id'] = $goods->id;
+
+
+   Whoops\Exception\ErrorException  : Uncaught Error: Class 'App\Services\Product' not found in /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+Stack trace:
+#0 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#2 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(114): Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}('onMessage', Array)
+#6 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Fra
+
+  at /www/wwwroot/xfdj/app/Services/WebSocketService.php:51
+    47| 			    if($curr_time >= $timeBegin1 && $curr_time <= $timeEnd1)
+    48| 			    {
+    49| 				    $user = User::whereOpenid($info->openid)->first();
+    50| 	                $buy =  GoodsDb::inRandomOrder()->first();
+  > 51| 	                $goods = Product::where('status',1)->inRandomOrder()->first();
+    52| 	                $buy->avatar = env('APP_URL').'/uploads/'. $buy->avatar;
+    53| 	                $buy->nick =  mb_substr($buy->nick,0,2).'***'.mb_substr($buy->nick,mb_strlen($buy->nick,"utf-8")-2,mb_strlen($buy->nick,"utf-8"));
+    54| 	                $buy['time'] = rand(5,20);
+    55| 	                $buy['goods_id'] = $goods->id;
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 51)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 09:34:17 *26120.2]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Error:...', '/www/wwwroot/xf...', 51)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 09:34:17 $25937.0]	WARNING	swManager_check_exit_status: worker#2[pid=26120] abnormal exit, status=255, signal=0
+PHP Parse error:  syntax error, unexpected 'inRandomOrder' (T_STRING) in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 51
+PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Illuminate\Database\Eloquent\Builder::where(), 0 passed in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 51 and at least 1 expected in /www/wwwroot/xfdj/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:223
+Stack trace:
+#0 /www/wwwroot/xfdj/app/Services/WebSocketService.php(51): Illuminate\Database\Eloquent\Builder->where()
+#1 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#3 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#6 /www/wwwr in /www/wwwroot/xfdj/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php on line 223
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught ArgumentCountError: Too few arguments to function Illuminate\Database\Eloquent\Builder::where(), 0 passed in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 51 and at least 1 expected in /www/wwwroot/xfdj/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:223
+Stack trace:
+#0 /www/wwwroot/xfdj/app/Services/WebSocketService.php(51): Illuminate\Database\Eloquent\Builder->where()
+#1 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#3 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#6 /www/wwwr
+
+  at /www/wwwroot/xfdj/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:223
+    219|      * @param  mixed   $value
+    220|      * @param  string  $boolean
+    221|      * @return $this
+    222|      */
+  > 223|     public function where($column, $operator = null, $value = null, $boolean = 'and')
+    224|     {
+    225|         if ($column instanceof Closure) {
+    226|             $column($query = $this->model->newModelQuery());
+    227|
+
+
+   Whoops\Exception\ErrorException  : Uncaught ArgumentCountError: Too few arguments to function Illuminate\Database\Eloquent\Builder::where(), 0 passed in /www/wwwroot/xfdj/app/Services/WebSocketService.php on line 51 and at least 1 expected in /www/wwwroot/xfdj/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:223
+Stack trace:
+#0 /www/wwwroot/xfdj/app/Services/WebSocketService.php(51): Illuminate\Database\Eloquent\Builder->where()
+#1 [internal function]: App\Services\WebSocketService->onMessage(Object(Swoole\WebSocket\Server), Object(Swoole\WebSocket\Frame))
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(105): call_user_func_array(Array, Array)
+#3 [internal function]: Hhxsv5\LaravelS\Swoole\Server->Hhxsv5\LaravelS\Swoole\{closure}()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Traits/LogTrait.php(79): call_user_func_array(Object(Closure), Array)
+#5 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(106): Hhxsv5\LaravelS\LaravelS->callWithCatchException(Object(Closure))
+#6 /www/wwwr
+
+  at /www/wwwroot/xfdj/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:223
+    219|      * @param  mixed   $value
+    220|      * @param  string  $boolean
+    221|      * @return $this
+    222|      */
+  > 223|     public function where($column, $operator = null, $value = null, $boolean = 'and')
+    224|     {
+    225|         if ($column instanceof Closure) {
+    226|             $column($query = $this->model->newModelQuery());
+    227|
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Argume...', '/www/wwwroot/xf...', 223)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 10:09:20 *31010.1]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught Argume...', '/www/wwwroot/xf...', 223)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-08-10 10:09:20 $25937.0]	WARNING	swManager_check_exit_status: worker#1[pid=31010] abnormal exit, status=255, signal=0
+[2019-08-11 08:54:07 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-11 18:55:21 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-11 18:59:46 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 09:30:13 *31145.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 12:01:37 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 16:36:29 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 16:55:15 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 17:21:21 *31143.6]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 17:51:40 *31144.7]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-12 17:51:58 *31141.0]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-13 09:32:24 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-13 09:48:15 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-13 18:34:14 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-14 09:41:49 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-14 10:14:36 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-14 10:14:47 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-14 10:15:18 *31143.6]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-15 10:08:53 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-15 11:32:56 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-15 16:40:56 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-15 16:41:07 *31143.6]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-15 16:51:11 *31144.7]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-15 16:51:12 *31141.0]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-16 09:53:17 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-16 09:57:36 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-17 09:40:23 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-18 08:02:50 *31145.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-19 09:07:11 *31145.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-19 09:18:22 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-19 09:19:02 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-19 17:23:47 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-20 09:46:42 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-20 09:46:48 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-20 09:47:08 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-21 09:23:15 *31145.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-21 09:33:36 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-21 09:35:07 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-21 10:08:51 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-21 10:09:02 *31143.6]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-22 09:02:54 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-22 09:46:47 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-22 15:24:58 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-23 09:08:36 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-23 12:19:26 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-23 14:02:57 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-23 16:40:24 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-24 10:40:26 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-24 10:52:06 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-24 15:59:39 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-25 10:34:58 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-25 12:09:08 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-26 09:17:52 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-26 09:29:46 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-26 11:33:51 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-26 17:39:30 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-27 09:32:11 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-27 10:56:17 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-28 07:32:58 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-28 10:19:42 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-28 17:31:35 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-29 09:20:03 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-29 10:54:08 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-30 11:21:41 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-31 08:19:02 *332.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-08-31 10:05:24 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+PHP Fatal error:  Uncaught ErrorException: Swoole\Server::start(): header no sec-websocket-key in /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php:361
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Swoole\\Server::...', '/www/wwwroot/xf...', 361, Array)
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(361): Swoole\Server->start()
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(132): Hhxsv5\LaravelS\Swoole\Server->run()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(183): Hhxsv5\LaravelS\Console\Portal->start()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(62): Hhxsv5\LaravelS\Console\Portal->restart()
+#5 /www/wwwroot/xfdj/vendor/symfony/console/Command/Command.php(255): Hhxsv5\LaravelS\Console\Portal->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /www/wwwroot/xfdj/bin/laravels(10): Symfony\Component\Console in /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php on line 361
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : Uncaught ErrorException: Swoole\Server::start(): header no sec-websocket-key in /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php:361
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Swoole\\Server::...', '/www/wwwroot/xf...', 361, Array)
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(361): Swoole\Server->start()
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(132): Hhxsv5\LaravelS\Swoole\Server->run()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(183): Hhxsv5\LaravelS\Console\Portal->start()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(62): Hhxsv5\LaravelS\Console\Portal->restart()
+#5 /www/wwwroot/xfdj/vendor/symfony/console/Command/Command.php(255): Hhxsv5\LaravelS\Console\Portal->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /www/wwwroot/xfdj/bin/laravels(10): Symfony\Component\Console
+
+  at /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php:361
+    357|     }
+    358| 
+    359|     public function run()
+    360|     {
+  > 361|         $this->swoole->start();
+    362|     }
+    363| }
+    364|
+
+
+   Whoops\Exception\ErrorException  : Uncaught ErrorException: Swoole\Server::start(): header no sec-websocket-key in /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php:361
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Swoole\\Server::...', '/www/wwwroot/xf...', 361, Array)
+#1 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php(361): Swoole\Server->start()
+#2 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(132): Hhxsv5\LaravelS\Swoole\Server->run()
+#3 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(183): Hhxsv5\LaravelS\Console\Portal->start()
+#4 /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Console/Portal.php(62): Hhxsv5\LaravelS\Console\Portal->restart()
+#5 /www/wwwroot/xfdj/vendor/symfony/console/Command/Command.php(255): Hhxsv5\LaravelS\Console\Portal->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /www/wwwroot/xfdj/bin/laravels(10): Symfony\Component\Console
+
+  at /www/wwwroot/xfdj/vendor/hhxsv5/laravel-s/src/Swoole/Server.php:361
+    357|     }
+    358| 
+    359|     public function run()
+    360|     {
+  > 361|         $this->swoole->start();
+    362|     }
+    363| }
+    364|
+
+PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught ErrorE...', '/www/wwwroot/xf...', 361)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-09-01 10:22:50 *27892.1]	ERROR	zm_deactivate_swoole (ERRNO 503): Fatal error: Uncaught Swoole\ExitException: swoole exit in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php:135
+Stack trace:
+#0 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(314): Whoops\Util\SystemFacade->stopExecution(1)
+#1 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(353): Whoops\Run->handleException(Object(Whoops\Exception\ErrorException))
+#2 /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Run.php(382): Whoops\Run->handleError(1, 'Uncaught ErrorE...', '/www/wwwroot/xf...', 361)
+#3 [internal function]: Whoops\Run->handleShutdown()
+#4 {main}
+  thrown in /www/wwwroot/xfdj/vendor/filp/whoops/src/Whoops/Util/SystemFacade.php on line 135
+[2019-09-01 10:22:50 $25937.0]	WARNING	swManager_check_exit_status: worker#1[pid=27892] abnormal exit, status=255, signal=0
+[2019-09-01 13:37:36 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-01 13:38:23 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-02 09:37:39 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-03 09:20:09 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-03 10:42:10 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-04 09:04:27 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-04 09:54:17 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-04 13:24:33 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-04 13:25:31 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-05 08:43:09 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-05 09:16:34 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-05 11:22:34 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-06 10:14:35 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-06 11:35:38 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-07 09:13:43 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-07 09:41:59 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-07 11:53:27 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-08 10:08:58 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-09 00:39:58 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-09 09:22:22 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-09 09:37:07 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-09 09:37:13 *31147.5]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-10 11:23:53 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-10 23:58:41 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-11 23:45:05 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-12 20:11:51 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-16 08:41:36 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-17 11:15:24 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-19 15:46:45 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-20 10:05:17 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-21 00:24:20 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-21 11:18:03 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-21 14:53:43 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-22 09:01:21 *27118.1]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-22 16:49:49 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-23 19:21:10 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-23 19:28:09 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-23 19:29:19 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-24 10:45:07 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-26 12:12:05 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-27 16:40:18 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-27 16:40:41 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-28 11:13:16 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-29 09:13:21 *27118.1]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-29 15:00:41 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-30 11:40:10 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-30 11:52:23 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-09-30 11:52:55 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-01 12:28:07 *27118.1]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-01 13:01:05 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-05 11:23:51 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-05 11:23:51 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-06 09:49:44 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-07 09:26:44 *8554.1]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-07 10:43:54 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-07 17:52:20 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-08 10:15:37 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-08 13:29:27 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-08 13:35:20 *31146.4]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-09 10:30:12 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-10 09:54:10 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-10 17:17:30 *31142.3]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
+[2019-10-11 10:56:14 *30395.2]	WARNING	swSignalfd_onSignal (ERRNO 707): Unable to find callback function for signal Broken pipe: 13
